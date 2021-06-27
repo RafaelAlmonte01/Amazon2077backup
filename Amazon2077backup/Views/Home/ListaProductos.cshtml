@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "ListaProductos";
+}
+
+<h2>Productos</h2>
+
+<a href="/Home/Agregar" class="btn btn-primary">Agregar</a>
+
+<hr />
+
+<div class="container">
+
+    <div class="row">
+
+        @foreach (var p in Model)
+
+        {
+            <div class="col-lg-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top img-responsive" src="@p.Imagen">
+                    <div class="card-body">
+                        <h5 class="card-title">@p.Nombre</h5>
+                        <p class="card-text">@p.Descripcion</p>
+                        <p>$@p.Precio</p>
+                        <p> @p.Stock</p>
+                        <p>@p.Tipo</p>
+                        <a href="#" class="btn btn-primary">Comprar</a>
+                    </div>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+
+
+
+</div>

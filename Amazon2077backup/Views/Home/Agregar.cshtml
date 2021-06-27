@@ -1,0 +1,81 @@
+﻿@model Amazon2077backup.Models.ProductosEN
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar Producto</h2>
+
+<hr />
+
+<form method="Post" action="/Home/Agregar">
+
+
+    <div class="panel-body">
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <div id="header" class="bg-info">
+                        <h2 class="mb-0 t">
+                            <button class="btn btn-link text-light" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Ingrese la Informacion
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                             data-parent="#acordionExample">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <strong style="color:white">Nombre</strong>
+                                        @Html.TextBoxFor(a => a.Nombre, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <strong style="color:white">Descripcion</strong>
+                                            @Html.TextAreaFor(a => a.Descripcion, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <strong style="color:white">Imagen</strong>
+                                        @Html.TextBoxFor(a => a.Imagen, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <strong style="color:white">Precio</strong>
+                                        @Html.TextBoxFor(a => a.Precio, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <strong style="color:white">Stock</strong>
+                                        @Html.TextBoxFor(a => a.Stock, new { @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.DropDownListFor(a => a.Tipo, Html.GetEnumSelectList<Amazon2077backup.Models.TipoProducto>(), new { @class = "form-Control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="btn btn-success" type="submit" value="Agregar" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<a href="/Home/ListaProductos" class="btn btn-danger">Cancelar</a>
+
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+
+
+        });
+    </script>
+}

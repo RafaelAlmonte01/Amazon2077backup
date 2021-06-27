@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "ListaProductosAdmin";
+}
+
+<h2>Productos</h2>
+
+<link href="~/lib/datatables/css/dataTables.jqueryui.css" rel="stylesheet" />
+<link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+
+
+<a href="/Home/Agregar" class="btn btn-primary">Agregar</a>
+<br />
+
+<table class="table-bordered table-striped align-content-center" id="TablaProductos">
+    <thead>
+        <tr>
+            <th>PID</th>
+            <th>Nombres</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Tipo</th>
+            <th></th>
+
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var p in Model)
+        {
+        <tr>
+            <td>@p.PID</td>
+            <td>@p.Nombre</td>
+            <td>@p.Descripcion</td>
+            <td>@p.Stock</td>
+            <td>@p.Tipo</td>
+            <td class="center">
+                
+
+                <a href="/Home/Modificar/@p.PID" class="btn btn-warning">
+                    Editar
+                </a>
+
+                <a href="/Home/Eliminar/@p.PID" class="btn btn-danger">
+                    Eliminar
+                </a>
+
+            </td>
+
+        </tr>
+           
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+
+    <script src="~/lib/datatables.net/jquery.dataTables.js"></script>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            $('#TablaProductos').DataTable();
+
+        });
+
+    </script>
+
+}
