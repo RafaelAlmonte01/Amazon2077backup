@@ -71,10 +71,24 @@ namespace Amazon2077backup.Controllers
             {
                 _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                 _db.SaveChanges();
-                return RedirectToAction("ListaProductos");
+                return RedirectToAction("ListaProductosAdmin");
 
             }
             return View(input);
+        }
+
+        public IActionResult Eliminar(int id)
+        {
+            var output = _db.Productos.Find(id);
+            return View(output);
+        }
+
+        [HttpPost]
+        public IActionResult Eliminar(ProductosEN input)
+        {
+            _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
+            _db.SaveChanges();
+            return RedirectToAction("ListaProductosAdmin");
         }
 
 

@@ -19,22 +19,19 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top img-responsive" src="@p.Imagen">
                     <div class="card-body">
-                        <h5 class="card-title">@p.Nombre</h5>
-                        <p class="card-text">@p.Descripcion</p>
-                        <p>$@p.Precio</p>
-                        <p> @p.Stock</p>
-                        <p>@p.Tipo</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">@p.Nombre</li>
+                            <li class="list-group-item">@p.Descripcion</li>
+                            <li class="list-group-item">USD$@p.Precio</li>
+                            <li class="list-group-item">@p.Tipo</li>                           
+
+                        </ul>
+                        
                         <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
-
             </div>
         }
 
-
-
     </div>
-
-
-
 </div>

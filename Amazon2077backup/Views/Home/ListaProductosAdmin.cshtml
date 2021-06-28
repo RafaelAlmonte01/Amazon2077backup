@@ -17,6 +17,7 @@
             <th>PID</th>
             <th>Nombres</th>
             <th>Descripcion</th>
+            <th>Precio</th>
             <th>Stock</th>
             <th>Tipo</th>
             <th></th>
@@ -32,10 +33,11 @@
             <td>@p.PID</td>
             <td>@p.Nombre</td>
             <td>@p.Descripcion</td>
+            <td>USD$@p.Precio</td>
             <td>@p.Stock</td>
             <td>@p.Tipo</td>
             <td class="center">
-                
+
 
                 <a href="/Home/Modificar/@p.PID" class="btn btn-warning">
                     Editar
