@@ -2,9 +2,15 @@
     ViewBag.Title = "ListaProductos";
 }
 
-<h2>Productos</h2>
 
-<a href="/Home/Agregar" class="btn btn-primary">Agregar</a>
+<header class="bg-dark py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Nuestros Productos</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Tienen la mejor calidad y el mejor precio</p>
+        </div>
+    </div>
+</header>
 
 <hr />
 
@@ -17,17 +23,24 @@
         {
             <div class="col-lg-4">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top img-responsive" src="@p.Imagen">
+                    <img class="card-img-top img-responsive" src="@p.Imagen" style="height:250px">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">@p.Nombre</li>
-                            <li class="list-group-item">@p.Descripcion</li>
-                            <li class="list-group-item">USD$@p.Precio</li>
-                            <li class="list-group-item">@p.Tipo</li>                           
+                            <li class="list-group-item" style="text-align: center;">@p.Nombre</li>
+                            <li class="list-group-item" style="text-align: center;">USD$@p.Precio</li>
+                            <li class="list-group-item" style="text-align: center;">@p.Tipo</li>
+                            <li class="list-group-item" style="text-align: center;">
+                                <div class="d-grid gap-2">
+                                    <a href="/Home/DetalleProducto" class="btn btn-primary" type="button" style=" width: 200px;">Ver Detalle</a>
+                                </div>
+                            </li>
+                            <li class="list-group-item" style="text-align: center;">
+                                <button class="btn btn-success btn-agregar-carrito" type="button" style=" width: 200px">
+                                    <i class="fas fa-cart-plus btn-agregar-carrito" data-producto="@p.PID"></i>
+                                </button>
+                            </li>
 
                         </ul>
-                        
-                        <a href="#" class="btn btn-primary">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -35,3 +48,28 @@
 
     </div>
 </div>
+
+@section scripts{
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+
+
+            $('.btn-agregar-carrito').click(function () {
+
+                var productoId = $(this).data('producto');
+
+                $.post('/Carrito/AgregarAlCarrito/', { ProductoId: productoId }, function (respuesta) {
+                    if (respuesta.result === true) {
+
+                        var badgeCarrito = $('#cantEnCarrito');
+
+                        var cantidad = parseInt(badgeCarrito.text());
+                        cantidad++
+                        badgeCarrito.text(cantidad);
+                    }
+                });
+            });
+
+        });</script>
+}

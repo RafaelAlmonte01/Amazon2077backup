@@ -39,6 +39,13 @@ namespace Amazon2077backup.Controllers
             var productos = _db.Productos;
             return View(productos);
         }
+        
+
+        public IActionResult DetalleProducto()
+        {
+            var productos = _db.Productos;
+            return View(productos);
+        }
 
         public IActionResult Agregar()
         {
