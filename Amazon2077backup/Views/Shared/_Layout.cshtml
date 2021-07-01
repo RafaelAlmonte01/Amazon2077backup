@@ -22,15 +22,31 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i>Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListaProductos">ListaProductos</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListaProductos">Productos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListaProductos">Categorias</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListaProductosAdmin"><i class="fab fa-themeco"></i>AdminList</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="CrearRole"><i class="fab fa-themeco"></i>CrearRole</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <form class="d-flex">
+                                <input type="text" id="txtsearch" name="txtsearch" class="form-control me-2">
+                                <button type="button" class="btn btn-success btn-search">Buscar</button>
+                            </form>
+                        </li>
+
+
+
+
 
 
 
@@ -40,7 +56,7 @@
             </div>
         </nav>
     </header>
-    
+
 
     <div class="container container-lg">
         <main role="main" class="pb-3">
@@ -57,7 +73,27 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/font-awesome/js/all.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.btn-search').click(function () {
+                window.location = "/Home/ListaProductos?Nombre=" + $('#txtsearch').val();
+
+
+
+            });
+
+
+
+        });</script>
+
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
+
+    
 

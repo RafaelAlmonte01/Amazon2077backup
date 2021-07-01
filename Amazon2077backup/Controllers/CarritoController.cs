@@ -13,6 +13,11 @@ namespace Amazon2077backup.Controllers
             return View();
         }
 
+        public IActionResult CarritoProductos()
+        {
+            return View();
+        }
+
         [HttpPost]
 
         public IActionResult AgregarAlCarrito(int ProductoId)

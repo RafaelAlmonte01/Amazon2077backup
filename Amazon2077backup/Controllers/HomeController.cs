@@ -1,5 +1,6 @@
 ﻿using Amazon2077backup.Data;
 using Amazon2077backup.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -28,12 +29,29 @@ namespace Amazon2077backup.Controllers
             return View();
         }
 
-        public IActionResult ListaProductos()
+        public IActionResult ListaProductos(ProductosENListaProductosViewModel input)
         {
-            var productos = _db.Productos;
+            IEnumerable<ProductosEN> productos = _db.Productos;
+
+           if (input.TipoProducto == null)
+            {
+                productos = _db.Productos;
+            }
+            else
+            {
+                productos = _db.Productos.Where(a => a.Tipo == input.TipoProducto.Value);
+            }
+            if (!string.IsNullOrEmpty(input.Nombre))
+            {
+
+                productos = productos.Where(a => a.Nombre.ToUpper().Contains(input.Nombre.ToUpper()));
+            
+            
+            }           
             return View(productos);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult ListaProductosAdmin()
         {
             var productos = _db.Productos;

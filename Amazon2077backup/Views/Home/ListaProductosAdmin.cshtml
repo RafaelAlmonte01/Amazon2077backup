@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ProductosEN>
+@{
     ViewBag.Title = "ListaProductosAdmin";
 }
 
@@ -29,28 +30,28 @@
     <tbody>
         @foreach (var p in Model)
         {
-        <tr>
-            <td>@p.PID</td>
-            <td>@p.Nombre</td>
-            <td>@p.Descripcion</td>
-            <td>USD$@p.Precio</td>
-            <td>@p.Stock</td>
-            <td>@p.Tipo</td>
-            <td class="center">
+            <tr>
+                <td>@p.PID</td>
+                <td>@p.Nombre</td>
+                <td>@p.Descripcion</td>
+                <td>USD$@p.Precio</td>
+                <td>@p.Stock</td>
+                <td>@p.Tipo</td>
+                <td class="center">
 
 
-                <a href="/Home/Modificar/@p.PID" class="btn btn-warning">
-                    Editar
-                </a>
+                    <a href="/Home/Modificar/@p.PID" class="btn btn-warning">
+                        Editar
+                    </a>
 
-                <a href="/Home/Eliminar/@p.PID" class="btn btn-danger">
-                    Eliminar
-                </a>
+                    <a href="/Home/Eliminar/@p.PID" class="btn btn-danger">
+                        Eliminar
+                    </a>
 
-            </td>
+                </td>
 
-        </tr>
-           
+            </tr>
+
         }
     </tbody>
 </table>

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ProductosEN>
+@{
     ViewBag.Title = "ListaProductos";
 }
 
@@ -21,6 +22,7 @@
         @foreach (var p in Model)
 
         {
+            <hr />
             <div class="col-lg-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top img-responsive" src="@p.Imagen" style="height:250px">
@@ -31,7 +33,7 @@
                             <li class="list-group-item" style="text-align: center;">@p.Tipo</li>
                             <li class="list-group-item" style="text-align: center;">
                                 <div class="d-grid gap-2">
-                                    <a href="/Home/DetalleProducto" class="btn btn-primary" type="button" style=" width: 200px;">Ver Detalle</a>
+                                    <a href="/Home/DetalleProducto" class="btn btn-primary" type="button" style="width: 200px;">Ver Detalle</a>
                                 </div>
                             </li>
                             <li class="list-group-item" style="text-align: center;">
@@ -44,6 +46,7 @@
                     </div>
                 </div>
             </div>
+            <hr />
         }
 
     </div>
@@ -52,7 +55,7 @@
 @section scripts{
 
     <script type="text/javascript">
-    $(document).ready(function () {
+        $(document).ready(function () {
 
 
             $('.btn-agregar-carrito').click(function () {
