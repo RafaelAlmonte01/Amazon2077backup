@@ -1,0 +1,389 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #d7d9e0;
+	font-family: 'Roboto', sans-serif;
+}
+
+
+nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav > a{
+    color:#fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover{
+    text-decoration: underline;
+}
+
+header .textos-header{
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.textos-header h1{
+    font-size: 50px;
+    color:#fff;
+}
+
+.textos-header h2{
+    font-size: 30px;
+    font-weight: 300;
+    color:#fff;
+}
+
+#titulo {
+
+	color: #ff0000;
+}
+
+fieldset{
+	margin-bottom: 20px;
+	background-color:#E9ECF4;
+	font-weight: bold;
+}
+	
+legend{
+	padding: 5px;
+	background-color: #fff;
+	border:solid 2px rgb(38, 0, 255);
+	font-weight: bold;
+	border-radius: 20px
+	}
+
+.wave{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	}
+
+#center {
+
+    display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.slider{
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+
+	 }
+
+	 .slider ul { 
+		 display: flex;
+		 padding: 0;
+		 width: 300%;
+		 
+		 animation: cambio 20s infinite;
+		  }
+		  .slider li{
+			  width: 200%;
+			  list-style: none;
+			   } 
+			   .slider img {
+				   width: 100%; 
+
+
+				    }
+
+					@keyframes cambio {
+						0% { margin-left: 0;}
+						20%{ margin-left: 0; } 
+
+						25% {margin-left: -100%;}
+						45% {margin-left: -100%;}
+
+						50% {margin-left: -200%;}
+						75% {margin-left: -200%;}
+
+
+						 }
+.image { 
+float: left;
+}
+
+#logo {
+   
+	float: left;
+
+}
+	
+
+/*Pagina 1*/
+
+.contenedor {
+	width: 100%;
+	max-width: 100%;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "header header header"
+						 "contenido contenido sidebar"
+						 "imagen-1 imagen-2 sidebar"
+						 "footer footer footer";
+}
+
+.contenedor > div,
+.contenedor header,
+.contenedor .contenido,
+.contenedor .sidebar,
+.contenedor .footer {
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+
+.contenedor header {
+	width: 97%;
+    height: 100%;
+    background: #2f00ff;
+    background: linear-gradient(to right, hsla(61, 100%, 50%, 0.267), hsla(209, 100%, 50%, 0.664)), url(../img/banner.png);
+    background-attachment: fixed;
+    grid-area: header;
+   
+}
+
+.contenedor .contenido {
+	grid-area: contenido;
+	text-align: justify;
+}
+
+.contenedor .contenido-1 {
+	grid-area: contenido;
+	text-align: justify;
+	background: #fff;
+	padding: 50px;
+	border-radius: 4px;
+	width: auto;
+	
+}
+
+.contenedor .sidebar {
+	background: #fffb00ec;
+	text-align: justify;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	grid-area: sidebar;
+}
+
+.contenedor .imagen-1,
+.contenedor .imagen-2,
+.contenedor .imagen-3 {
+	background: #55a8fd;
+	color: #fff;
+	height: 300px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contenedor .imagen-1 {
+	grid-area: imagen-1;
+}
+
+.contenedor .imagen-2 {
+	grid-area: imagen-2;
+}
+
+.contenedor .imagen-3 {
+	grid-area: imagen-3;
+}
+
+.contenedor .footer {
+	background: #0849d4;
+	color: #fff;
+	grid-area: footer;
+}
+
+
+/*Pagina 2*/
+
+.contenedor-1{
+	width: 100%;
+	max-width: 100%;
+	margin: 20px auto;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+
+	grid-template-areas: "header header header"
+						 "contenido contenido contenido"
+						 "imagen-1 imagen-2 imagen-3 "
+						 "imagen-4 imagen-5 imagen-6 "
+						 "imagen-7 imagen-8 imagen-9 "
+						 "footer footer footer";
+}
+
+.contenedor-1 > div,
+.contenedor-1 header,
+.contenedor-1 .contenido,
+.contenedor-1 .sidebar,
+.contenedor-1 .footer {
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+
+.contenedor-1 header {
+	width: 97%;
+    height: 100%;
+    background: #2f00ff;
+    background: linear-gradient(to right, hsla(61, 100%, 50%, 0.267), hsla(209, 100%, 50%, 0.664)), url(../img/banner.png);
+    background-attachment: fixed;
+    
+    grid-area: header;
+   
+}
+
+.contenedor-1 .contenido {
+	grid-area: contenido;
+	text-align: justify;
+}
+
+.contenedor-1 .contenido-1 {
+	grid-area: contenido;
+	text-align: justify;
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+	width: auto;
+	
+}
+
+
+.contenedor-1 .imagen-1,
+.contenedor-1 .imagen-2,
+.contenedor-1 .imagen-3 {
+	background: #55a8fd;
+	color: #fff;
+	height: 300px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contenedor-1 .imagen-1 {
+	grid-area: imagen-1;
+}
+
+.contenedor-1 .imagen-2 {
+	grid-area: imagen-2;
+}
+
+.contenedor-1 .imagen-3 {
+	grid-area: imagen-3;
+}
+
+.contenedor-1 .footer {
+	background: #0849d4;
+	color: #fff;
+	grid-area: footer;
+}
+
+
+.contenedor-1 header {
+	width: 97%;
+    height: 100%;
+    background: #2f00ff;
+    background: linear-gradient(to right, hsla(61, 100%, 50%, 0.267), hsla(209, 100%, 50%, 0.664)), url(../img/banner.png);
+    background-attachment: fixed;
+    
+    grid-area: header;
+   
+}
+
+.contenedor-1 .contenido {
+	grid-area: contenido;
+	text-align: justify;
+}
+
+.contenedor-1 .contenido-1 {
+	grid-area: contenido;
+	text-align: justify;
+	background: #fff;
+	padding: 20px;
+	border-radius: 4px;
+	width: auto;
+	
+}
+
+
+.contenedor-1 .imagen-1,
+.contenedor-1 .imagen-2,
+.contenedor-1 .imagen-3,
+.contenedor-1 .imagen-4,
+.contenedor-1 .imagen-5,
+.contenedor-1 .imagen-6,
+.contenedor-1 .imagen-7,
+.contenedor-1 .imagen-8,
+.contenedor-1 .imagen-9 {
+	
+	background: #55a8fd;
+	color: #fff;
+	height: 300px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.contenedor-1 .imagen-1 {
+	grid-area: imagen-1;
+}
+
+.contenedor-1 .imagen-2 {
+	grid-area: imagen-2;
+}
+
+.contenedor-1 .imagen-3 {
+	grid-area: imagen-3;
+}
+
+.contenedor-1 .imagen-4 {
+	grid-area: imagen-4;
+}
+
+.contenedor-1 .imagen-5 {
+	grid-area: imagen-5;
+}
+
+.contenedor-1 .imagen-6 {
+	grid-area: imagen-6;
+}
+
+
+.contenedor-1 .footer {
+	background: #0849d4;
+	color: #fff;
+	grid-area: footer;
+}
+	
+
