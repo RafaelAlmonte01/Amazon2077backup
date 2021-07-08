@@ -29,11 +29,14 @@ namespace Amazon2077backup.Controllers
             return View();
         }
 
+
         public IActionResult ListaProductos(ProductosENListaProductosViewModel input)
         {
             IEnumerable<ProductosEN> productos = _db.Productos;
 
-           if (input.TipoProducto == null)
+            
+
+            if (input.TipoProducto == null)
             {
                 productos = _db.Productos;
             }
@@ -47,21 +50,46 @@ namespace Amazon2077backup.Controllers
                 productos = productos.Where(a => a.Nombre.ToUpper().Contains(input.Nombre.ToUpper()));
             
             
-            }           
+            }
+
+            else if (input.Categoria == null)
+            {
+
+                productos = _db.Productos;
+
+            }
+            else 
+
+            {
+
+                productos = _db.Productos.Where(a => a.Tipo == input.Categoria.Value);
+
+
+            }
+
+
+
+
             return View(productos);
         }
 
-        [Authorize(Roles = "Admin")]
-        public IActionResult ListaProductosAdmin()
-        {
-            var productos = _db.Productos;
-            return View(productos);
-        }
-        
 
-        public IActionResult DetalleProducto()
+        public IActionResult DetalleProducto(ProductosENListaProductosViewModel input)
         {
-            var productos = _db.Productos;
+            IEnumerable<ProductosEN> productos = _db.Productos;
+
+            if (input.PID == null)
+            {
+
+                productos = _db.Productos;
+
+            }
+            else 
+            {
+
+                productos = _db.Productos.Where(a => a.PID == input.PID.Value);
+
+            }
             return View(productos);
         }
 

@@ -33,12 +33,12 @@
                             <li class="list-group-item" style="text-align: center;">@p.Tipo</li>
                             <li class="list-group-item" style="text-align: center;">
                                 <div class="d-grid gap-2">
-                                    <a href="/Home/DetalleProducto" class="btn btn-primary" type="button" style="width: 200px;">Ver Detalle</a>
+                                    <button class="btn btn-primary btn-detail" type="button"  data-producto="@p.PID"  style="width: 200px;">Ver Detalle</button>
                                 </div>
                             </li>
                             <li class="list-group-item" style="text-align: center;">
                                 <button class="btn btn-success btn-agregar-carrito" type="button" style=" width: 200px">
-                                    <i class="fas fa-cart-plus btn-agregar-carrito" data-producto="@p.PID"></i>
+                                    <i class="fas fa-cart-plus btn-agregar-carrito"  data-productoID="@p.PID" ></i>
                                 </button>
                             </li>
 
@@ -58,20 +58,30 @@
         $(document).ready(function () {
 
 
+            $('.btn-detail').click(function () {
+
+               
+               
+            });
+
+
             $('.btn-agregar-carrito').click(function () {
 
                 var productoId = $(this).data('producto');
+               
 
                 $.post('/Carrito/AgregarAlCarrito/', { ProductoId: productoId }, function (respuesta) {
                     if (respuesta.result === true) {
 
                         var badgeCarrito = $('#cantEnCarrito');
-
                         var cantidad = parseInt(badgeCarrito.text());
                         cantidad++
                         badgeCarrito.text(cantidad);
                     }
+                 
                 });
+
+                
             });
 
         });</script>

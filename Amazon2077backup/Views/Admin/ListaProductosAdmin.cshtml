@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ProductosEN>
+@{
+    ViewBag.Title = "ListaProductosAdmin";
+}
+
+
+
+<link href="~/lib/datatables/css/dataTables.jqueryui.css" rel="stysheet" />
+<link href="~/lib/datatables/css/jquery.dataTables.css" rel="stylesheet" />
+
+<div class="container">
+
+    <div class="py-5 text-center">
+        <h2>AdminList</h2>
+        <p class="lead">Agrega, actualiza o elimina un producto. </p>
+    </div>
+
+    <hr />
+
+    <a href="/Home/Agregar" class="btn btn-primary">Agregar <i class="fas fa-plus-square"></i></a>
+    <hr />
+
+
+
+
+    <table class="table-bordered table-striped align-content-center" id="TablaProductos">
+        <thead>
+            <tr>
+                <th>PID</th>
+                <th>Nombres</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Tipo</th>
+                <th></th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var p in Model)
+            {
+                <tr>
+                    <td>@p.PID</td>
+                    <td>@p.Nombre</td>
+                    <td>@p.Descripcion</td>
+                    <td>USD$@p.Precio</td>
+                    <td>@p.Stock</td>
+                    <td>@p.Tipo</td>
+                    <td class="center">
+
+
+                        <a href="/Home/Modificar/@p.PID" class="btn btn-warning" style="width:100px">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <a href="/Home/Eliminar/@p.PID" class="btn btn-danger" style="width:100px">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+
+
+    <script src="~/lib/datatables.net/jquery.dataTables.js"></script>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+
+            $('#TablaProductos').DataTable();
+
+        });
+
+    </script>
+
+}

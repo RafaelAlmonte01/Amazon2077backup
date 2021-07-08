@@ -30,13 +30,21 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListaProductosAdmin"><i class="fab fa-themeco"></i>AdminList</a>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorias
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a class="dropdown-item" href="/Home/ListaProductos?Categoria=0">Electronicos</a></li>
+                                    <li><a class="dropdown-item" href="/Home/ListaProductos?Categoria=1">Computadoras</a></li>
+                                    <li><a class="dropdown-item" href="/Home/ListaProductos?Categoria=2">Celulares</a></li>
+                                    <li><a class="dropdown-item" href="/Home/ListaProductos?Categoria=3">Moda</a></li>
+                                    <li><a class="dropdown-item" href="/Home/ListaProductos?Categoria=4">Software</a></li>
+                                </ul>
+                            </div>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Administrador" asp-action="CrearRole"><i class="fab fa-themeco"></i>CrearRole</a>
-                        </li>
-
+                      
 
                         <li class="nav-item">
                             <form class="d-flex">
@@ -70,10 +78,20 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
+            $(document).ready(function () {
+
+             $(".dropdown-toggle").dropdown();
+
+            });
+                
+            
             $('.btn-search').click(function () {
                 window.location = "/Home/ListaProductos?Nombre=" + $('#txtsearch').val();
 
             });
+
+               
+
         });</script>
 
 
