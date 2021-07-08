@@ -42,7 +42,7 @@ namespace Amazon2077backup.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult CrearRole()
         {
             return View();
