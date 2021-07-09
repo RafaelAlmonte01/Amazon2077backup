@@ -32,8 +32,8 @@
                             <li class="list-group-item" style="text-align: center;">USD$@p.Precio</li>
                             <li class="list-group-item" style="text-align: center;">@p.Tipo</li>
                             <li class="list-group-item" style="text-align: center;">
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary btn-detail" type="button"  data-producto="@p.PID"  style="width: 200px;">Ver Detalle</button>
+                                <div class="d-grid gap-2">                                 
+                                    <center><a href="/Home/DetalleProducto/@p.PID" class="btn btn-primary" style="width: 200px;">Ver detalle</a></center>
                                 </div>
                             </li>
                             <li class="list-group-item" style="text-align: center;">
@@ -57,20 +57,12 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-
-            $('.btn-detail').click(function () {
-
-               
-               
-            });
-
-
             $('.btn-agregar-carrito').click(function () {
 
                 var productoId = $(this).data('producto');
                
 
-                $.post('/Carrito/AgregarAlCarrito/', { ProductoId: productoId }, function (respuesta) {
+                $.post('/Carrito/AgregarAlCarrito/', { PID: productoId }, function (respuesta) {
                     if (respuesta.result === true) {
 
                         var badgeCarrito = $('#cantEnCarrito');

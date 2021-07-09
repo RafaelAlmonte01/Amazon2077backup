@@ -15,9 +15,7 @@ namespace Amazon2077backup.Models
         public int? PID { get; set; }
 
         public TipoProducto? Categoria { get; set; }
-
        
-
-        
+       
     }
 }

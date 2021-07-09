@@ -15,13 +15,19 @@ namespace Amazon2077backup.Models
 
         public int CartID { get; set; }
         [Required]
-        public int UserID { get; set; }
+        public string UserName { get; set; }
         [Required]
-        public int PID { get; set; }
+        public string ProductName { get; set; }
+        [Required]
+        public int ProductoID { get; set; }
         [Required]
         public int Cantidad { get; set; }
         [Required]
-        public int PreUNI { get; set; }
+        public decimal PreUNI { get; set; }
+
+        public decimal Subtotal { get { return PreUNI * Cantidad; } }
+
+    
 
     }
 }

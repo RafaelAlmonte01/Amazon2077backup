@@ -1,0 +1,19 @@
+﻿@model Amazon2077backup.Models.Carrito
+@{
+    ViewBag.Title = "EliminarProductos";
+}
+
+<a href="/Home" class="btn btn-primary">Volver</a>
+
+<form method="Post" action="/Carrito/EliminarProducto" class="form-horizontal">
+
+    @Html.HiddenFor(obj => obj.ProductoID)
+
+    <div class="container-fluid">
+
+        <h1>Estas seguro que quieres elimar el registro?</h1>
+        <button type="submit" class="btn btn-danger"> Eliminar </button>
+
+    </div>
+
+</form>

@@ -24,6 +24,8 @@ namespace Amazon2077backup.Controllers
 
         }
 
+        [Authorize]
+
         public IActionResult Index()
         {
             return View();
@@ -64,7 +66,6 @@ namespace Amazon2077backup.Controllers
 
                 productos = _db.Productos.Where(a => a.Tipo == input.Categoria.Value);
 
-
             }
 
 
@@ -74,23 +75,10 @@ namespace Amazon2077backup.Controllers
         }
 
 
-        public IActionResult DetalleProducto(ProductosENListaProductosViewModel input)
+        public IActionResult DetalleProducto(int id)
         {
-            IEnumerable<ProductosEN> productos = _db.Productos;
-
-            if (input.PID == null)
-            {
-
-                productos = _db.Productos;
-
-            }
-            else 
-            {
-
-                productos = _db.Productos.Where(a => a.PID == input.PID.Value);
-
-            }
-            return View(productos);
+            var output = _db.Productos.Find(id);
+            return View(output);
         }
 
         public IActionResult Agregar()
@@ -132,7 +120,7 @@ namespace Amazon2077backup.Controllers
 
         public IActionResult Eliminar(int id)
         {
-            var output = _db.Productos.Find(id);
+            var output = _db.Carrito.Find(id);
             return View(output);
         }
 
