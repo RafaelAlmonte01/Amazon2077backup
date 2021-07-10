@@ -37,8 +37,8 @@
                                 </div>
                             </li>
                             <li class="list-group-item" style="text-align: center;">
-                                <button class="btn btn-success btn-agregar-carrito" type="button" style=" width: 200px">
-                                    <i class="fas fa-cart-plus btn-agregar-carrito"  data-productoID="@p.PID" ></i>
+                                <button class="btn btn-success btn-agregar-carrito" type="button" style=" width: 200px"  data-producto="@p.PID">
+                                    <i class="fas fa-cart-plus btn-agregar-carrito"></i>
                                 </button>
                             </li>
 
@@ -60,9 +60,9 @@
             $('.btn-agregar-carrito').click(function () {
 
                 var productoId = $(this).data('producto');
-               
+                console.log(productoId);
 
-                $.post('/Carrito/AgregarAlCarrito/', { PID: productoId }, function (respuesta) {
+                $.post('/Carrito/AgregarAlCarrito/', { ProductoID: productoId }, function (respuesta) {
                     if (respuesta.result === true) {
 
                         var badgeCarrito = $('#cantEnCarrito');

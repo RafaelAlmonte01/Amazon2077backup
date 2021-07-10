@@ -34,12 +34,11 @@ namespace Amazon2077backup.Controllers
         }
 
         [HttpPost]
-        public IActionResult EliminarProducto(Carrito input)
-
+        public IActionResult EliminarProducto(ProductosEN input)
         {
             _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
             _db.SaveChanges();
-            return RedirectToAction("CarritoProductos");
+            return RedirectToAction("ListaProductosAdmin");
         }
 
         public IActionResult CarritoProductos()
@@ -60,14 +59,33 @@ namespace Amazon2077backup.Controllers
 
         public IActionResult AgregarAlCarrito(Carrito input)
         {
-                
-                var producto = _db.Productos.Find(input.ProductoID);  
+            
+                var producto = _db.Productos.Find(input.ProductoID);
+                var productoCarrito = _db.Carrito.FirstOrDefault(a => a.UserName == User.Identity.Name && a.ProductoID == input.ProductoID);
+
+            if (productoCarrito == null)
+            {
+
                 input.ProductName = producto.Nombre;
                 input.PreUNI = producto.Precio;
                 input.UserName = User.Identity.Name;
                 input.Cantidad = 1;
 
                 _db.Carrito.Add(input);
+
+
+            }
+            else 
+            {
+
+
+                productoCarrito.Cantidad += 1;
+                _db.Entry(productoCarrito).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+
+
+
+            }
+                
                 _db.SaveChanges();
 
                 return Json(new { Result = true });
