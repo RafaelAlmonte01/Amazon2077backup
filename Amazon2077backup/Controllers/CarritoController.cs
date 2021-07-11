@@ -34,11 +34,11 @@ namespace Amazon2077backup.Controllers
         }
 
         [HttpPost]
-        public IActionResult EliminarProducto(ProductosEN input)
+        public IActionResult EliminarProducto(Carrito input)
         {
             _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
             _db.SaveChanges();
-            return RedirectToAction("ListaProductosAdmin");
+            return RedirectToAction("Carrito");
         }
 
         public IActionResult CarritoProductos()
