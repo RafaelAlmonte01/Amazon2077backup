@@ -22,6 +22,10 @@ namespace Amazon2077backup.Data
 
         public DbSet<Carrito> Carrito { get; set; }
 
+        
+
+
+
     }
 
 

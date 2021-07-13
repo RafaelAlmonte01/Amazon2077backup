@@ -18,6 +18,7 @@ namespace Amazon2077backup.Models
         public string UserName { get; set; }
         [Required]
         public string ProductName { get; set; }
+       
         [Required]
         public int ProductoID { get; set; }
         [Required]
@@ -26,23 +27,6 @@ namespace Amazon2077backup.Models
         public decimal PreUNI { get; set; }
 
         public decimal Subtotal { get { return PreUNI * Cantidad; } }
-
-        //Metodo de Pago
-
-        [Required]
-        public string NombreCliente { get; set; }
-
-        [Required]
-        public string ApellidoCliente { get; set; }
-
-        [Required]
-        public string DireccionPedido { get; set; }
-
-        [Required, MaxLength(5)]
-        public int CodigoPostal { get; set; }
-
-
-
 
 
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amazon2077backup.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210708142226_update_ProductoID")]
-    partial class update_ProductoID
+    [Migration("20210712223954_Tables")]
+    partial class Tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,16 @@ namespace Amazon2077backup.Migrations
                     b.Property<decimal>("PreUNI")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("ProductoID")
                         .HasColumnType("int");
+
+                    b.Property<string>("ProductoIMG")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()

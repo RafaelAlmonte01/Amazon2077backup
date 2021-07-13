@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Amazon2077backup.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210709154730_Add_ProductName")]
-    partial class Add_ProductName
+    [Migration("20210713005705_Tables1")]
+    partial class Tables1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -24,7 +24,7 @@ namespace Amazon2077backup.Controllers
 
         }
 
-        [Authorize]
+
 
         public IActionResult Index()
         {
@@ -81,56 +81,12 @@ namespace Amazon2077backup.Controllers
             return View(output);
         }
 
-        public IActionResult Agregar()
+        public IActionResult Pago()
         {
+          
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Agregar(ProductosEN input)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Productos.Add(input);
-                _db.SaveChanges();
-
-                return RedirectToAction("ListaProductos");
-            }
-            return View(input);
-        }
-
-        public IActionResult Modificar(int id)
-        {
-            var output = _db.Productos.Find(id);
-            return View(output);
-        }
-
-        [HttpPost]
-        public IActionResult Modificar(ProductosEN input)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-                _db.SaveChanges();
-                return RedirectToAction("ListaProductosAdmin");
-
-            }
-            return View(input);
-        }
-
-        public IActionResult Eliminar(int id)
-        {
-            var output = _db.Carrito.Find(id);
-            return View(output);
-        }
-
-        [HttpPost]
-        public IActionResult Eliminar(ProductosEN input)
-        {
-            _db.Entry(input).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
-            _db.SaveChanges();
-            return RedirectToAction("ListaProductosAdmin");
-        }
 
 
 

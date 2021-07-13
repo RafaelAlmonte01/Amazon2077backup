@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Amazon2077backup.Migrations
 {
-    public partial class prueba1 : Migration
+    public partial class Tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -52,10 +52,12 @@ namespace Amazon2077backup.Migrations
                 {
                     CartID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(nullable: false),
-                    PID = table.Column<int>(nullable: false),
+                    UserName = table.Column<string>(nullable: false),
+                    ProductName = table.Column<string>(nullable: false),
+                    ProductoIMG = table.Column<string>(nullable: false),
+                    ProductoID = table.Column<int>(nullable: false),
                     Cantidad = table.Column<int>(nullable: false),
-                    PreUNI = table.Column<int>(nullable: false)
+                    PreUNI = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {

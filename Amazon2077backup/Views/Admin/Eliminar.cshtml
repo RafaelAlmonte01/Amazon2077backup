@@ -1,0 +1,26 @@
+﻿@model Amazon2077backup.Models.ProductosEN
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+
+
+<form method="Post" action="/Admin/Eliminar" class="form-horizontal">
+
+    @Html.HiddenFor(obj => obj.PID)
+
+   
+        <div class="container-fluid">
+            <header>
+                <hr />
+                <a href="/Home" class="btn btn-primary">Volver</a>
+                <hr />
+                <h1 class="text-danger text-center"><strong>@ViewBag.Title;</strong></h1>
+                <p> <h1 class="text-danger text-center">Estas seguro que quieres eliminar el producto?.</h1></p>
+                <p> <h1 class="text-center"> <button type="submit" class="btn btn-danger"> Eliminar </button> </h1> </p>
+                <hr />
+
+            </header>
+        </div>
+
+</form>

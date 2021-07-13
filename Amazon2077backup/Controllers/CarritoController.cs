@@ -29,8 +29,8 @@ namespace Amazon2077backup.Controllers
 
         public IActionResult EliminarProducto(int id)
         {
-            var output = _db.Carrito.Find(id);
-            return View(output);
+            var carrito = _db.Carrito.Find(id);
+            return View(carrito);
         }
 
         [HttpPost]
@@ -41,6 +41,7 @@ namespace Amazon2077backup.Controllers
             return RedirectToAction("Carrito");
         }
 
+        [Authorize]
         public IActionResult CarritoProductos()
         {
             var carritos = _db.Carrito;
@@ -48,8 +49,10 @@ namespace Amazon2077backup.Controllers
         }
 
 
-        
 
+
+
+        [Authorize]
         public IActionResult AgregarAlCarrito()
         {
             return View();
@@ -65,7 +68,6 @@ namespace Amazon2077backup.Controllers
 
             if (productoCarrito == null)
             {
-
                 input.ProductName = producto.Nombre;
                 input.PreUNI = producto.Precio;
                 input.UserName = User.Identity.Name;
