@@ -13,13 +13,11 @@ public class Detalle
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-    public int DetalleID { get; set; }
+    public int pedidoID { get; set; }
     [Required]
     public string UserName { get; set; }
     [Required]
     public string ProductName { get; set; }
-    [Required]
-    public string ProductoIMG { get; set; }
     [Required]
     public int ProductoID { get; set; }
     [Required]
@@ -28,7 +26,6 @@ public class Detalle
     public decimal PreUNI { get; set; }
 
     public decimal Subtotal { get { return PreUNI * CantidadB; } }
-
 
        }
 }

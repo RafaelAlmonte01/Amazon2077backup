@@ -50,7 +50,7 @@ namespace Amazon2077backup.Controllers
 
 
 
-
+        //Metodo Agregar al carrito
 
         [Authorize]
         public IActionResult AgregarAlCarrito()

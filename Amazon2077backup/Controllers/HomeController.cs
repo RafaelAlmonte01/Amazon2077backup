@@ -31,7 +31,7 @@ namespace Amazon2077backup.Controllers
             return View();
         }
 
-
+        //Metodo para Lista Productos(opciones del buscador, y categoria de producto)
         public IActionResult ListaProductos(ProductosENListaProductosViewModel input)
         {
             IEnumerable<ProductosEN> productos = _db.Productos;
@@ -74,7 +74,7 @@ namespace Amazon2077backup.Controllers
             return View(productos);
         }
 
-
+        //Metodo para detalle de producto
         public IActionResult DetalleProducto(int id)
         {
             var output = _db.Productos.Find(id);

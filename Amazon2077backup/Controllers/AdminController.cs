@@ -25,6 +25,8 @@ namespace Amazon2077backup.Controllers
 
         }
 
+        //Authorize Roles sirve para determinar que el Usuario que inicio sesion Cuente con el rol de Administrador
+
         [Authorize(Roles = "Admin")]
 
         public IActionResult IndexAdmin()
@@ -38,29 +40,41 @@ namespace Amazon2077backup.Controllers
 
         public IActionResult ListaProductosAdmin()
         {
+            //se le estan pasando a la variable productos,todos los datos de la base de datos y luego lo retorna a la vista.
             var productos = _db.Productos;
             return View(productos);
-        }
+        } 
 
         [Authorize(Roles = "Admin")]
+
+        //Metodo para Agregar productos
         public IActionResult Agregar()
         {
             return View();
         }
 
+        
+
         [HttpPost]
         public IActionResult Agregar(ProductosEN input)
         {
+            //Si nuestro formulario es valido, va a agregar los datos enviados a la tabla productos y guarda los cambios.
             if (ModelState.IsValid)
             {
                 _db.Productos.Add(input);
                 _db.SaveChanges();
 
+                //y aqui se retorno a la vista AdminList
                 return RedirectToAction("ListaProductosAdmin");
             }
+           
             return View(input);
         }
+
+
         [Authorize(Roles = "Admin")]
+
+        //Metodo para Modificar productos
         public IActionResult Modificar(int id)
         {
             var output = _db.Productos.Find(id);
@@ -79,7 +93,10 @@ namespace Amazon2077backup.Controllers
             }
             return View(input);
         }
+
         [Authorize(Roles = "Admin")]
+
+        //Metodo para Eliminar productos
         public IActionResult Eliminar(int id)
         {
             var output = _db.Productos.Find(id);

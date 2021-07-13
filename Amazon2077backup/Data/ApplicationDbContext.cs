@@ -18,6 +18,8 @@ namespace Amazon2077backup.Data
         {
         }
 
+        //Aqui declaro las tablas que voy a utilizar en mi base de datos
+
         public DbSet<ProductosEN> Productos { get; set; }
 
         public DbSet<Carrito> Carrito { get; set; }
